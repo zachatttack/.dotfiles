@@ -1,1 +1,154 @@
-/home/zach/.config/nvim/init.vim
+set shell=/bin/sh
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'morhetz/gruvbox'
+Plug 'jaredgorski/spacecamp'
+Plug 'dracula/vim'
+Plug 'scrooloose/nerdtree'
+Plug 'posva/vim-vue'
+Plug 'Townk/vim-autoclose'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-commentary'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } 
+Plug '/home/zach/.fzf/bin/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+Plug 'junegunn/fzf.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'sheerun/vim-polyglot'
+Plug 'majutsushi/tagbar'
+Plug 'jremmen/vim-ripgrep'
+Plug 'rust-lang/rust.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'easymotion/vim-easymotion'
+Plug 'dense-analysis/ale'
+Plug 'SirVer/ultisnips'
+Plug 'vim-perl/vim-perl'
+Plug 'vim-python/python-syntax'
+"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
+call plug#end()
+
+set t_Co=256
+syntax on
+set mouse=a
+set number
+"set relativenumber
+set background=dark
+colorscheme spacecamp
+set cursorline 
+set so=7
+set noswapfile
+set colorcolumn=110
+"highlight ColorColumn ctermbg=darkgray
+
+
+""set path+=/c/Users/zthomas/Documents/git/harvestmaster-vt/src/ioxp/**
+""set path+=/c/Users/zthomas/Documents/git/harvestmaster-vt/src/**
+""set path+=/c/Users/zthomas/Documents/git/harvestmaster-vt/src/ioxp/P111-F231-VT240-TC20b5
+
+map <F4> :NERDTreeToggle <CR>
+let g:NERDTreeChDirMode = 2
+
+let g:deoplete#enable_at_startup = 1
+let g:ale_completion_enabled = 1
+
+"use <tab> for completion
+function! TabWrap()
+    if pumvisible()
+        return "\<C-N>"
+    elseif strpart( getline('.'), 0, col('.') - 1 ) =~ '^\s*$'
+        return "\<tab>"
+    elseif &omnifunc !~ ''
+        return "\<C-X>\<C-O>"
+    else
+        return "\<C-N>"
+    endif
+endfunction
+
+" power tab
+imap <silent><expr><tab> TabWrap()
+
+"Map ctrl-y to enter
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" autocmd FileType javascript setlocal ts=2 sw=2 sts=0 noexpandtab
+
+" Comment leader symbols
+autocmd FileType vim setlocal commentstring=//%s
+autocmd FileType vue setlocal commentstring=//%s
+
+
+autocmd FileType vue setlocal shiftwidth=3
+autocmd FileType javascript setlocal shiftwidth=3
+
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
+
+nmap <Leader>l :BLines<CR>
+nmap <Leader>t :BTags<CR>
+nmap <Leader>f :GFiles<CR>
+nmap <Leader>b :Buffers<CR>
+
+nmap <Leader>c :read $HOME/.config/nvim/my_snippets/console_log<CR>==3wa
+
+nmap <F8> :TagbarToggle<CR>
+nmap <Leader>r :set relativenumber<CR>
+nmap <Leader>n :set norelativenumber<CR>
+
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
+
+" Git gutter
+set updatetime=100
+let g:gitgutter_diff_args = '-w'
+
+"GutenTags
+let g:gutentags_project_root = ['tags'] 
+let g:gutentags_enabled = 1
+
+" Ale
+
+"Commentary
+" autocmd FileType vue setlocal commentstring="//\ %s"
+"autocmd FileType vue setlocal commentstring=//%s
+
+let g:AutoClosePumvisible = {"ENTER": "", "ESC": ""}
+
+let g:ale_c_parse_makefile = 1
+
+let g:ale_linters = {
+\ 'c' : ['clangtidy']
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'vue': ['eslint'],
+\}
+
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+
+autocmd BufRead *.py nmap <F5> :!clear;python3 %<CR>
+autocmd BufRead,BufNewFile *.md setlocal spell
+
+let g:python_highlight_all = 1
+
+let g:c_syntax_for_h = 1
+
