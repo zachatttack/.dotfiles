@@ -119,6 +119,9 @@ export DISPLAY=127.0.0.1:0.0
 
 MYVIMRC=~/.config/nvim/init.vim
 
-alias vim="nvim" 
-zsh
+xrdb ~/.Xresources
 
+alias vim="nvim" 
+export DOCKER_HOST=tcp://localhost:2375
+
+zsh
