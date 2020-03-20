@@ -119,6 +119,10 @@ export DISPLAY=127.0.0.1:0.0
 
 MYVIMRC=~/.config/nvim/init.vim
 
+
+
+
 alias vim="nvim" 
 zsh
 
+export PULSE_SERVER=tcp:localhost
