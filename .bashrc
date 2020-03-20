@@ -121,8 +121,10 @@ MYVIMRC=~/.config/nvim/init.vim
 
 
 
+xrdb ~/.Xresources
 
 alias vim="nvim" 
-zsh
+export DOCKER_HOST=tcp://localhost:2375
 
 export PULSE_SERVER=tcp:localhost
+zsh
