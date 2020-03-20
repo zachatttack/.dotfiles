@@ -192,4 +192,6 @@ gaps outer 10
 # Please remove the following exec line:
 #######################################################################
 exec i3-config-wizard
+exec xmodmap ~/.xmodmap
 exec feh --bg-scale ~/Pictures/wallpaper.jpg
+exec xset m 1/1 0

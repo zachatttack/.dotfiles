@@ -115,7 +115,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export DISPLAY=127.0.0.1:0.0
+
+#export DISPLAY=127.0.0.1:0.0
 
 MYVIMRC=~/.config/nvim/init.vim
 
