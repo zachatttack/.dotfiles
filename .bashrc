@@ -119,9 +119,12 @@ export DISPLAY=127.0.0.1:0.0
 
 MYVIMRC=~/.config/nvim/init.vim
 
+
+
 xrdb ~/.Xresources
 
 alias vim="nvim" 
 export DOCKER_HOST=tcp://localhost:2375
 
+export PULSE_SERVER=tcp:localhost
 zsh
