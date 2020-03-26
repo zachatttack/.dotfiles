@@ -129,3 +129,5 @@ export DOCKER_HOST=tcp://localhost:2375
 
 export PULSE_SERVER=tcp:localhost
 # zsh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
