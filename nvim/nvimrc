@@ -26,6 +26,7 @@ Plug 'dense-analysis/ale'
 Plug 'SirVer/ultisnips'
 Plug 'vim-perl/vim-perl'
 Plug 'vim-python/python-syntax'
+Plug 'tpope/vim-fugitive'
 "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 call plug#end()
@@ -40,7 +41,7 @@ colorscheme spacecamp
 set cursorline 
 set so=7
 set noswapfile
-set colorcolumn=110
+"set colorcolumn=110
 "highlight ColorColumn ctermbg=darkgray
 
 
@@ -146,9 +147,24 @@ let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
 autocmd BufRead *.py nmap <F5> :!clear;python3 %<CR>
+autocmd BufRead *.rs nmap <F5> :!clear;cargo build<CR>
 autocmd BufRead,BufNewFile *.md setlocal spell
 
 let g:python_highlight_all = 1
 
 let g:c_syntax_for_h = 1
+
+
+" Highlight merge conflict markers
+match Todo '\v^(\<|\=|\>){7}([^=].+)?$'
+
+" Jump to next/previous merge conflict marker
+nnoremap <silent> ]v /\v^(\<\|\=\|\>){7}([^=].+)?$<CR>
+nnoremap <silent> [v ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>
+
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
 
