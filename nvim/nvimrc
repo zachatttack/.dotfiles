@@ -114,9 +114,6 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 
-" Git gutter
-set updatetime=100
-let g:gitgutter_diff_args = '-w'
 
 "GutenTags
 let g:gutentags_project_root = ['tags'] 
