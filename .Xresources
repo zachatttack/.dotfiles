@@ -42,14 +42,6 @@ URxvt*scrollBar: false
 URxvt*scrollBar_right: false
 URxvt*scrollBar_floating: false
 
-/* !-- Xft settings -- ! */
-/* Xft.dpi:        96 */
-/* Xft.antialias:  true */
-/* Xft.rgba:       rgb */
-/* Xft.hinting:    true */
-/* Xft.hintstyle:  hintfull */
-/* ! */
-
 URxvt*.perl-ext-common: default,font-size
 
 URxvt*.keysym.C-Up:     perl:font-size:increase
@@ -57,6 +49,10 @@ URxvt*.keysym.C-Down:   perl:font-size:decrease
 URxvt*.keysym.C-S-Up:   perl:font-size:incglobal
 URxvt*.keysym.C-S-Down: perl:font-size:decglobal
 
+!st.alpha: 0
+
+
 !! -- Fonts -- !
 /* *.font:xft:SourceCodeVariable:size=16 */
 *.font: Source Code Variable:size=14
+

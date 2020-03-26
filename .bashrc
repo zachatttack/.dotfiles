@@ -128,4 +128,4 @@ alias vim="nvim"
 export DOCKER_HOST=tcp://localhost:2375
 
 export PULSE_SERVER=tcp:localhost
-zsh
+# zsh
