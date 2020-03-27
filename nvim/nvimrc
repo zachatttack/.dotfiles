@@ -20,7 +20,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'rust-lang/rust.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'easymotion/vim-easymotion'
 Plug 'dense-analysis/ale'
 Plug 'SirVer/ultisnips'
@@ -114,9 +114,6 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 
-" Git gutter
-set updatetime=100
-let g:gitgutter_diff_args = '-w'
 
 "GutenTags
 let g:gutentags_project_root = ['tags'] 
@@ -167,4 +164,6 @@ nnoremap <leader>gd :Gvdiff<CR>
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
 
+" Fugitive keybinds
+nnoremap <leader>gs :Gstatus<CR>
 

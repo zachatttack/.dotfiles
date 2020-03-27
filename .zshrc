@@ -99,6 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias vt="/c/Users/zthomas/Documents/git/vt-anywhere/"
+alias g="git"
 
 if [ -f /$HOME/.cargo/env] ]; then
     source $HOME/.cargo/env
