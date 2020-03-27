@@ -4,7 +4,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 "Util
 Plug 'scrooloose/nerdtree'
 Plug 'Townk/vim-autoclose'
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } 
 Plug '/home/zach/.fzf/bin/fzf'
@@ -21,6 +21,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'dense-analysis/ale'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
+Plug 'itchyny/lightline.vim'
 "Lang Syntax
 Plug 'vim-python/python-syntax'
 Plug 'vim-perl/vim-perl'
@@ -40,12 +41,15 @@ set mouse=a
 set number
 "set relativenumber
 set background=dark
-colorscheme spacecamp
+colorscheme dogrun
 set cursorline 
 set so=7
 set noswapfile
 "set colorcolumn=110
 "highlight ColorColumn ctermbg=darkgray
+let g:lightline = { 
+            \ 'colorscheme': 'dogrun',
+            \ }
 
 
 ""set path+=/c/Users/zthomas/Documents/git/harvestmaster-vt/src/ioxp/**
