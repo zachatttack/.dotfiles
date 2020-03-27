@@ -1,11 +1,8 @@
 set shell=/bin/sh
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'morhetz/gruvbox'
-Plug 'jaredgorski/spacecamp'
-Plug 'dracula/vim'
+"Util
 Plug 'scrooloose/nerdtree'
-Plug 'posva/vim-vue'
 Plug 'Townk/vim-autoclose'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
@@ -17,17 +14,23 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'sheerun/vim-polyglot'
 Plug 'majutsushi/tagbar'
 Plug 'jremmen/vim-ripgrep'
-Plug 'rust-lang/rust.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify'
 Plug 'easymotion/vim-easymotion'
 Plug 'dense-analysis/ale'
 Plug 'SirVer/ultisnips'
-Plug 'vim-perl/vim-perl'
-Plug 'vim-python/python-syntax'
 Plug 'tpope/vim-fugitive'
-"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+"Lang Syntax
+Plug 'vim-python/python-syntax'
+Plug 'vim-perl/vim-perl'
+Plug 'rust-lang/rust.vim'
+Plug 'posva/vim-vue'
+" Colorschemes
+Plug 'wadackel/vim-dogrun'
+Plug 'jaredgorski/spacecamp'
+Plug 'morhetz/gruvbox'
+Plug 'dracula/vim'
 
 call plug#end()
 
@@ -160,7 +163,7 @@ nnoremap <silent> ]v /\v^(\<\|\=\|\>){7}([^=].+)?$<CR>
 nnoremap <silent> [v ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>
 
 " Fugitive Conflict Resolution
-nnoremap <leader>gd :Gvdiff<CR>
+nnoremap <leader>gd :Gvdiffsplit!<CR>
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
 
