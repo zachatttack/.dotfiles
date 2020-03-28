@@ -43,6 +43,7 @@ set number
 "set relativenumber
 set background=dark
 colorscheme dogrun
+hi Normal guibg=NONE ctermbg=NONE 
 set cursorline 
 set so=7
 set noswapfile
@@ -87,7 +88,7 @@ set expandtab
 " autocmd FileType javascript setlocal ts=2 sw=2 sts=0 noexpandtab
 
 " Comment leader symbols
-autocmd FileType vim setlocal commentstring=//%s
+autocmd FileType vim setlocal commentstring=\"%s
 autocmd FileType vue setlocal commentstring=//%s
 
 
@@ -125,11 +126,6 @@ let g:gutentags_project_root = ['tags']
 let g:gutentags_enabled = 1
 
 " Ale
-
-"Commentary
-" autocmd FileType vue setlocal commentstring="//\ %s"
-"autocmd FileType vue setlocal commentstring=//%s
-
 let g:AutoClosePumvisible = {"ENTER": "", "ESC": ""}
 
 let g:ale_c_parse_makefile = 1
