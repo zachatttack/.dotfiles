@@ -90,6 +90,7 @@ set expandtab
 " Comment leader symbols
 autocmd FileType vim setlocal commentstring=\"%s
 autocmd FileType vue setlocal commentstring=//%s
+autocmd FileType xdefaults setlocal commentstring=!%s
 
 
 autocmd FileType vue setlocal shiftwidth=3
@@ -147,6 +148,8 @@ let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 autocmd BufRead *.py nmap <F5> :!clear;python3 %<CR>
 autocmd BufRead *.rs nmap <F5> :!clear;cargo build<CR>
 autocmd BufRead,BufNewFile *.md setlocal spell
+
+autocmd BufWinLeave *.Xresources :!xrdb $HOME/.Xresources
 
 let g:python_highlight_all = 1
 
