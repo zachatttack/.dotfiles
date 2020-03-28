@@ -7,3 +7,4 @@ exec xinput --set-prop 10 'libinput Accel Profile Enabled' 0, 1 &
 exec xrandr --output DP-4 --primary --mode 2560x1440 --rate 144 &
 exec picom --config $HOME/.picom.conf &
 exec $HOME/.dotfiles/scripts/dwmbar.sh &
+exec sxhkd &
