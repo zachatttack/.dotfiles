@@ -52,9 +52,6 @@ let g:lightline = {
             \ }
 
 
-""set path+=/c/Users/zthomas/Documents/git/harvestmaster-vt/src/ioxp/**
-""set path+=/c/Users/zthomas/Documents/git/harvestmaster-vt/src/**
-""set path+=/c/Users/zthomas/Documents/git/harvestmaster-vt/src/ioxp/P111-F231-VT240-TC20b5
 
 map <F4> :NERDTreeToggle <CR>
 let g:NERDTreeChDirMode = 2
