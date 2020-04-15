@@ -26,6 +26,6 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 MYVIMRC="$HOME/.dotfiles/nvim/nvimrc"
-DOCKER_HOST="tcp://localhost:2375"
+export DOCKER_HOST="tcp://localhost:2375"
 
-
+export PATH=/home/zach/.local/bin/:$PATH
