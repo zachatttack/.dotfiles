@@ -19,9 +19,8 @@ alias vim="nvim"
 alias vt="/c/Users/zthomas/Documents/git/vt-anywhere/"
 alias g="git"
 
-if [ -f /$HOME/.cargo/env] ]; then
-    source $HOME/.cargo/env
-fi
+[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -29,3 +28,5 @@ MYVIMRC="$HOME/.dotfiles/nvim/nvimrc"
 export DOCKER_HOST="tcp://localhost:2375"
 
 export PATH=/home/zach/.local/bin/:$PATH
+
+
