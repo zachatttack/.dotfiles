@@ -6,7 +6,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'Townk/vim-autoclose'
 "Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } 
 Plug '/home/zach/.fzf/bin/fzf'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
@@ -18,10 +17,10 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify'
 Plug 'easymotion/vim-easymotion'
-Plug 'dense-analysis/ale'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Lang Syntax
 Plug 'vim-python/python-syntax'
 Plug 'vim-perl/vim-perl'
@@ -35,6 +34,8 @@ Plug 'morhetz/gruvbox'
 Plug 'dracula/vim'
 
 call plug#end()
+
+source /home/zach/.config/nvim/plug-config/coc.vim
 
 set t_Co=256
 syntax on
@@ -58,8 +59,6 @@ let g:lightline = {
 map <F4> :NERDTreeToggle <CR>
 let g:NERDTreeChDirMode = 2
 
-let g:deoplete#enable_at_startup = 1
-let g:ale_completion_enabled = 1
 
 "use <tab> for completion
 function! TabWrap()
@@ -126,20 +125,6 @@ autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 let g:gutentags_project_root = ['tags'] 
 let g:gutentags_enabled = 1
 
-" Ale
-let g:AutoClosePumvisible = {"ENTER": "", "ESC": ""}
-
-let g:ale_c_parse_makefile = 1
-
-let g:ale_linters = {
-\ 'c' : ['clangtidy']
-\}
-
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\   'vue': ['eslint'],
-\}
 
 let g:UltiSnipsExpandTrigger           = '<tab>'
 let g:UltiSnipsJumpForwardTrigger      = '<tab>'
@@ -170,4 +155,5 @@ nnoremap gdl :diffget //3<CR>
 
 " Fugitive keybinds
 nnoremap <leader>gs :Gstatus<CR>
+
 
