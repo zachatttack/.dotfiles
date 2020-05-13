@@ -9,3 +9,5 @@ exec picom --config $HOME/.picom.conf &
 exec sxhkd &
 exec mopidy &
 exec $HOME/git/dwmblocks/dwmblocks &
+
+export PATH="$HOME/.cargo/bin:$PATH"
