@@ -22,6 +22,7 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'machakann/vim-highlightedyank'
 "Lang Syntax
 Plug 'vim-python/python-syntax'
 Plug 'vim-perl/vim-perl'
@@ -46,6 +47,8 @@ set number
 set background=dark
 colorscheme dogrun
 hi Normal guibg=NONE ctermbg=NONE 
+hi Search ctermbg=grey
+highlight HighlightedyankRegion cterm=reverse gui=reverse
 set cursorline 
 set so=7
 set noswapfile
