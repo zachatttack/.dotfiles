@@ -4,6 +4,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 "Util
 Plug 'scrooloose/nerdtree'
 Plug 'Townk/vim-autoclose'
+Plug 'jceb/vim-orgmode'
 "Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug '/home/zach/.fzf/bin/fzf'
@@ -29,6 +30,7 @@ Plug 'vim-perl/vim-perl'
 Plug 'rust-lang/rust.vim'
 Plug 'posva/vim-vue'
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " Colorschemes
 Plug 'wadackel/vim-dogrun'
 Plug 'jaredgorski/spacecamp'
@@ -63,6 +65,10 @@ let g:lightline = {
 map <F4> :NERDTreeToggle <CR>
 let g:NERDTreeChDirMode = 2
 
+
+" set foldmethod=indent
+" set foldlevel=1
+" set foldclose=all
 
 "use <tab> for completion
 function! TabWrap()
@@ -113,7 +119,7 @@ nmap <Leader>t :BTags<CR>
 nmap <Leader>f :GFiles<CR>
 nmap <Leader>b :Buffers<CR>
 
-nmap <Leader>c :read $HOME/.config/nvim/my_snippets/console_log<CR>==3wa
+" nmap <Leader>c :read $HOME/.config/nvim/my_snippets/console_log<CR>==3wa
 
 nmap <F8> :TagbarToggle<CR>
 nmap <Leader>r :set relativenumber<CR>
@@ -127,7 +133,7 @@ autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 
 "GutenTags
 let g:gutentags_project_root = ['tags'] 
-let g:gutentags_enabled = 1
+let g:gutentags_enabled = 0
 
 
 let g:UltiSnipsExpandTrigger           = '<tab>'
@@ -159,5 +165,12 @@ nnoremap gdl :diffget //3<CR>
 
 " Fugitive keybinds
 nnoremap <leader>gs :Gstatus<CR>
+
+"MD
+let g:mkdp_browser = 'google-chrome-stable'
+
+"Fancy FZF layout
+let g:fzf_layout = {'window': {'width': 0.8, 'height': 0.8}}
+let $FZF_DEFAULT_OPTS= '--reverse'
 
 
