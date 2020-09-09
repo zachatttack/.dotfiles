@@ -27,7 +27,7 @@ alias gs="git status"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-MYVIMRC="$HOME/.dotfiles/nvim/nvimrc"
+MYVIMRC="$HOME/.dotfiles/neovim/.vimrc"
 export DOCKER_HOST="tcp://localhost:2375"
 
 export PATH=/home/zach/.local/bin/:$PATH
