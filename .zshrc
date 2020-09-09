@@ -13,11 +13,14 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions)
 
-source $ZSH/oh-my-zsh.sh
+ source $ZSH/oh-my-zsh.sh
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias vim="nvim"
-alias vt="/c/Users/zthomas/Documents/git/vt-anywhere/"
+alias vt="cd /mnt/c/Users/zthomas/Documents/git/vt-anywhere/"
+
 alias g="git"
+alias gs="git status"
 
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 
@@ -28,5 +31,4 @@ MYVIMRC="$HOME/.dotfiles/nvim/nvimrc"
 export DOCKER_HOST="tcp://localhost:2375"
 
 export PATH=/home/zach/.local/bin/:$PATH
-
 
