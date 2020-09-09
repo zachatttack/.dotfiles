@@ -1,5 +1,0 @@
-{
-    "diagnostic.virtualText": true,
-    "clangd.path": "/usr/bin/clangd-10"
-}
-
