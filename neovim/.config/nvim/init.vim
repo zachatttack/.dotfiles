@@ -5,7 +5,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'Townk/vim-autoclose'
 Plug 'jceb/vim-orgmode'
-Plug 'ruifig/vim-vs'
 "Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug '/home/zach/.fzf/bin/fzf'
