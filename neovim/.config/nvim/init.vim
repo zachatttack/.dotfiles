@@ -61,7 +61,7 @@ let g:lightline = {
             \ 'colorscheme': 'dogrun',
             \ }
 
-
+nnoremap <Leader>v :e $MYVIMRC<cr>
 
 map <F4> :NERDTreeToggle <CR>
 let g:NERDTreeChDirMode = 2
