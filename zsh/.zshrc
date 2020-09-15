@@ -11,10 +11,10 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git)
 
  source $ZSH/oh-my-zsh.sh
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias vim="nvim"
 alias vt="cd /mnt/c/Users/zthomas/Documents/git/vt-anywhere/"
@@ -23,7 +23,6 @@ alias g="git"
 alias gs="git status"
 
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
