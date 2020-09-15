@@ -2,10 +2,6 @@ set shell=/bin/sh
 call plug#begin('~/.local/share/nvim/plugged')
 
 "Util
-Plug 'scrooloose/nerdtree'
-Plug 'Townk/vim-autoclose'
-Plug 'jceb/vim-orgmode'
-"Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug '/home/zach/.fzf/bin/fzf'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
@@ -18,8 +14,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify'
-Plug 'easymotion/vim-easymotion'
-Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -40,36 +34,44 @@ Plug 'dracula/vim'
 call plug#end()
 
 source /home/zach/.config/nvim/plug-config/coc.vim
+nnoremap <Leader>v :e $MYVIMRC <bar> lcd ~/.dotfiles<cr>
 
-set t_Co=256
 syntax on
 set mouse=a
 set number
-"set relativenumber
+set relativenumber
+set cursorline 
+set so=7
+set noswapfile
+set hidden
+
+set splitbelow
+set splitright
+
+set smartcase
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+" set cindent
+set cino+=(0
+
+"Color stuff
+set t_Co=256
 set background=dark
 colorscheme dogrun
 hi Normal guibg=NONE ctermbg=NONE 
 hi Search ctermbg=grey
 highlight HighlightedyankRegion cterm=reverse gui=reverse
-set cursorline 
-set so=7
-set noswapfile
-set hidden
-"set colorcolumn=110
-"highlight ColorColumn ctermbg=darkgray
 let g:lightline = { 
             \ 'colorscheme': 'dogrun',
             \ }
 
-nnoremap <Leader>v :e $MYVIMRC<cr>
-
-map <F4> :NERDTreeToggle <CR>
-let g:NERDTreeChDirMode = 2
-
-
-" set foldmethod=indent
-" set foldlevel=1
-" set foldclose=all
+"Netrw
+map <F4> :Lex <CR>
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_winsize = 18
 
 "use <tab> for completion
 function! TabWrap()
@@ -90,39 +92,26 @@ imap <silent><expr><tab> TabWrap()
 "Map ctrl-y to enter
 inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-" set cindent
-set cino+=(0
-
-" autocmd FileType javascript setlocal ts=2 sw=2 sts=0 noexpandtab
-
-" Comment leader symbols
+" Comment Leader symbols
 autocmd FileType vim setlocal commentstring=\"%s
 autocmd FileType vue setlocal commentstring=//%s
 autocmd FileType xdefaults setlocal commentstring=!%s
 
-
 autocmd FileType vue setlocal shiftwidth=3
 autocmd FileType javascript setlocal shiftwidth=3
 
-
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-set splitbelow
-set splitright
+"Nagivation
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 nmap <Leader>l :BLines<CR>
 nmap <Leader>t :BTags<CR>
 nmap <Leader>f :GFiles<CR>
+nmap <Leader>F :Files<CR>
 nmap <Leader>b :Buffers<CR>
-
-" nmap <Leader>c :read $HOME/.config/nvim/my_snippets/console_log<CR>==3wa
 
 nmap <F8> :TagbarToggle<CR>
 nmap <Leader>r :set relativenumber<CR>
@@ -131,29 +120,21 @@ nmap <Leader>n :set norelativenumber<CR>
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
-autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
-
-
 "GutenTags
 let g:gutentags_project_root = ['tags'] 
 let g:gutentags_enabled = 0
 
-
-let g:UltiSnipsExpandTrigger           = '<tab>'
-let g:UltiSnipsJumpForwardTrigger      = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
-
+"Autocmds
+autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 autocmd BufRead *.py nmap <F5> :!clear;python3 %<CR>
 autocmd BufRead *.rs nmap <F5> :!clear;cargo build<CR>
 autocmd BufRead,BufNewFile *.md setlocal spell
-
 autocmd BufWinLeave *.Xresources :!xrdb $HOME/.Xresources
 
 let g:python_highlight_all = 1
-
 let g:c_syntax_for_h = 1
 
-
+""Git stuff
 " Highlight merge conflict markers
 match Todo '\v^(\<|\=|\>){7}([^=].+)?$'
 
@@ -162,12 +143,12 @@ nnoremap <silent> ]v /\v^(\<\|\=\|\>){7}([^=].+)?$<CR>
 nnoremap <silent> [v ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>
 
 " Fugitive Conflict Resolution
-nnoremap <leader>gd :Gvdiffsplit!<CR>
+nnoremap <Leader>gd :Gvdiffsplit!<CR>
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
 
 " Fugitive keybinds
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <Leader>gs :Gstatus<CR>
 
 "MD
 let g:mkdp_browser = 'google-chrome-stable'
@@ -178,3 +159,13 @@ let $FZF_DEFAULT_OPTS= '--reverse'
 
 "Clangd header switch
 nmap <Leader>h :CocCommand clangd.switchSourceHeader<CR> 
+
+let g:coc_global_extensions = [ 
+            \'coc-pairs', 
+            \'coc-eslint',
+            \'coc-clangd', 
+            \'coc-tsserver', 
+            \'coc-rust-analyzer', 
+            \'coc-json', 
+            \]
+
