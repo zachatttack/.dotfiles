@@ -18,6 +18,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'machakann/vim-highlightedyank'
+Plug 'vimwiki/vimwiki'
 "Lang Syntax
 Plug 'vim-python/python-syntax'
 Plug 'vim-perl/vim-perl'
@@ -68,10 +69,38 @@ let g:lightline = {
             \ }
 
 "Netrw
-map <F4> :Lex <CR>
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 let g:netrw_winsize = 18
+let g:NetrwIsOpen=0
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i 
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Lexplore
+    endif
+endfunction
+
+map <F4> :call ToggleNetrw() <CR>
+function! NetrwMappings()
+    nnoremap <buffer> <C-l> <C-w>l
+    nnoremap <F4> :call ToggleNetrw()<CR>
+endfunction 
+augroup netrw_mappings
+    autocmd!
+    autocmd filetype netrw call NetrwMappings()
+augroup END
+" Close Netrw if it's the only buffer open
+autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
+
 
 "use <tab> for completion
 function! TabWrap()
