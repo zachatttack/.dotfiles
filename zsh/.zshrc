@@ -5,6 +5,7 @@
 export ZSH="/home/zach/.oh-my-zsh"
 
 ZSH_THEME="agnoster"
+#ZSH_THEME="afowler"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -13,10 +14,10 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
- source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 [ -f $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-alias vim="nvim"
+#alias vim="nvim"
 alias vt="cd /mnt/c/Users/zthomas/Documents/git/vt-anywhere/"
 
 alias g="git"
