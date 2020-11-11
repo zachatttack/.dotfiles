@@ -15,10 +15,12 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'machakann/vim-highlightedyank'
 Plug 'vimwiki/vimwiki'
+Plug 'reedes/vim-pencil'
 "Lang Syntax
 Plug 'vim-python/python-syntax'
 Plug 'vim-perl/vim-perl'
@@ -129,6 +131,7 @@ autocmd FileType xdefaults setlocal commentstring=!%s
 autocmd FileType vue setlocal shiftwidth=3
 autocmd FileType javascript setlocal shiftwidth=3
 
+
 "Nagivation
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -157,7 +160,7 @@ let g:gutentags_enabled = 0
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 autocmd BufRead *.py nmap <F5> :!clear;python3 %<CR>
 autocmd BufRead *.rs nmap <F5> :!clear;cargo build<CR>
-autocmd BufRead,BufNewFile *.md setlocal spell
+" autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufWinLeave *.Xresources :!xrdb $HOME/.Xresources
 
 let g:python_highlight_all = 1
@@ -180,7 +183,7 @@ nnoremap gdl :diffget //3<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
 "MD
-let g:mkdp_browser = 'google-chrome-stable'
+let g:mkdp_browser = 'chrome.exe'
 
 "Fancy FZF layout
 let g:fzf_layout = {'window': {'width': 0.8, 'height': 0.8}}
@@ -198,3 +201,32 @@ let g:coc_global_extensions = [
             \'coc-json', 
             \]
 
+let g:vimwiki_list = [{'path': '/mnt/c/Users/zthomas/Documents/vimwiki/',
+            \ 'syntax': 'markdown', 'ext': '.md'}]
+
+
+let s:enabled = 0
+function! ToggleConceal()
+    if s:enabled
+        set conceallevel=2
+        let s:enabled = 0
+    else
+        set conceallevel=0
+        let s:enabled = 1
+    endif
+endfunction
+
+nmap <Leader>c :call ToggleConceal()<CR>
+
+let s:spell_enabled = 0
+function! ToggleSpell()
+    if s:spell_enabled
+        set nospell
+        let s:spell_enabled = 0
+    else
+        set spell
+        let s:spell_enabled = 1
+    endif
+endfunction
+
+nmap <Leader>s :call ToggleSpell()<CR>
