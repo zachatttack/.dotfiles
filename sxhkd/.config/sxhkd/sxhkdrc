@@ -4,5 +4,14 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
     amixer set 'Master' 10%-
 
+XF86AudioMute
+    amixer set 'Master' toggle
+
 super + shift + s
 	maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+
+XF86MonBrightnessDown
+	xbacklight -dec 10
+
+XF86MonBrightnessUp
+	xbacklight -inc 10
