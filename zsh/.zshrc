@@ -17,7 +17,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 [ -f $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-#alias vim="nvim"
+alias vim="nvim"
 alias vt="cd /mnt/c/Users/zthomas/Documents/git/vt-anywhere/"
 
 alias g="git"
@@ -32,3 +32,4 @@ export DOCKER_HOST="tcp://localhost:2375"
 
 export PATH=/home/zach/.local/bin/:$PATH
 
+source /home/zach/.zprofile
