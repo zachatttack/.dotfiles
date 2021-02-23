@@ -10,6 +10,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'sheerun/vim-polyglot'
 Plug 'majutsushi/tagbar'
 Plug 'jremmen/vim-ripgrep'
+Plug 'rking/ag.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-surround'
@@ -33,6 +34,7 @@ Plug 'wadackel/vim-dogrun'
 Plug 'jaredgorski/spacecamp'
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim'
+ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 call plug#end()
 
@@ -58,6 +60,8 @@ set shiftwidth=4
 set expandtab
 " set cindent
 set cino+=(0
+
+let &path.="src/include,Libraries,"
 
 "Color stuff
 set t_Co=256
@@ -230,3 +234,13 @@ function! ToggleSpell()
 endfunction
 
 nmap <Leader>s :call ToggleSpell()<CR>
+
+lua <<EOF
+ require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    highlight = {
+      enable = true,              -- false will disable the whole extension
+      disable = { "rust" },  -- list of language that will be disabled
+    },
+  }
+EOF

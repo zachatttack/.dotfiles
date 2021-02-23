@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/zach/.oh-my-zsh"
 
-ZSH_THEME="agnoster"
+ZSH_THEME="afowler"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -30,4 +30,5 @@ MYVIMRC="$HOME/.dotfiles/neovim/.vimrc"
 export DOCKER_HOST="tcp://localhost:2375"
 
 export PATH=/home/zach/.local/bin/:$PATH
+export PATH=/mnt/c/cygwin64/bin/:$PATH
 
