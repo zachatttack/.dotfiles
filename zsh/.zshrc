@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/zach/.oh-my-zsh"
 
-ZSH_THEME="afowler"
+ZSH_THEME="rgm"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -17,7 +17,11 @@ plugins=(git)
 [ -f $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias vim="nvim"
-alias vt="cd /mnt/c/Users/zthomas/Documents/git/vt-anywhere/"
+alias e="explorer.exe ."
+#alias vt="cd /mnt/c/Users/zthomas/Documents/git/vt-anywhere/"
+
+alias doc="cd /mnt/c/Users/zthomas/Documents/"
+alias docgit="cd /mnt/c/Users/zthomas/Documents/git"
 
 alias g="git"
 alias gs="git status"
@@ -32,3 +36,18 @@ export DOCKER_HOST="tcp://localhost:2375"
 export PATH=/home/zach/.local/bin/:$PATH
 export PATH=/mnt/c/cygwin64/bin/:$PATH
 
+export FZF_DEFAULT_OPTS="
+--layout=reverse
+--info=inline
+--height=80%
+--multi
+--preview-window=:hidden
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
+--prompt='∼ ' --pointer='▶' --marker='✓'
+--bind '?:toggle-preview'
+--bind 'ctrl-a:select-all'
+--bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
+--bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
+--bind 'ctrl-v:execute(code {+})'
+"
