@@ -14,7 +14,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
+Plug 'CoatiSoftware/vim-sourcetrail'
+" Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -30,6 +31,7 @@ Plug 'kovetskiy/sxhkd-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " Colorschemes
 Plug 'wadackel/vim-dogrun'
+Plug 'wojciechkepka/bogster'
 Plug 'jaredgorski/spacecamp'
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim'
@@ -65,7 +67,7 @@ let &path.="src/include,Libraries,"
 "Color stuff
 set t_Co=256
 set background=dark
-colorscheme dogrun
+colorscheme bogster
 hi Normal guibg=NONE ctermbg=NONE 
 hi Search ctermbg=grey
 highlight HighlightedyankRegion cterm=reverse gui=reverse
@@ -137,6 +139,8 @@ autocmd FileType vue setlocal shiftwidth=3
 autocmd FileType javascript setlocal shiftwidth=3
 
 
+nmap // :noh<CR>
+
 "Nagivation
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -159,14 +163,14 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 "GutenTags
 let g:gutentags_project_root = ['tags'] 
-let g:gutentags_enabled = 0
+let g:gutentags_enabled = 1
 
 "Autocmds
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 autocmd BufRead *.py nmap <F5> :!clear;python3 %<CR>
 autocmd BufRead *.rs nmap <F5> :!clear;cargo build<CR>
 " autocmd BufRead,BufNewFile *.md setlocal spell
-autocmd BufWinLeave *.Xresources :!xrdb $HOME/.Xresources
+autocmd BufWinLeave *.Xresources :!xrdb $HOME/.dotfiles/Xresources/.Xresources
 
 let g:python_highlight_all = 1
 let g:c_syntax_for_h = 1
@@ -188,7 +192,7 @@ nnoremap gdl :diffget //3<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
 "MD
-let g:mkdp_browser = 'chrome.exe'
+let g:mkdp_browser = 'brave.exe'
 
 "Fancy FZF layout
 let g:fzf_layout = {'window': {'width': 0.8, 'height': 0.8}}
@@ -271,3 +275,34 @@ nnoremap <Leader>/ :Ack!<Space>
 " Navigate quickfix list with ease
 nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
+
+
+if has("cscope")
+    set csprg=/usr/bin/cscope
+    set csto=0
+    set cst
+    " add any database in current directory
+    if filereadable("cscope.out")
+        silent cs add cscope.out
+        " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        silent cs add $CSCOPE_DB
+    endif
+    "   's'   symbol: find all references to the token under cursor
+    "   'g'   global: find global definition(s) of the token under cursor
+    "   'c'   calls:  find all calls to the function name under cursor
+    "   't'   text:   find all instances of the text under cursor
+    "   'e'   egrep:  egrep search for the word under cursor
+    "   'f'   file:   open the filename under cursor
+    "   'i'   includes: find files that include the filename under cursor
+    "   'd'   called: find functions that function under cursor calls
+	nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+	nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+	nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+	nmap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+	nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+	nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+	nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+	nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+	nmap <C-Space>a :scs find a <C-R>=expand("<cword>")<CR><CR>
+endif

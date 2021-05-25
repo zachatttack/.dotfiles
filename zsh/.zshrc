@@ -22,9 +22,11 @@ alias e="explorer.exe ."
 
 alias doc="cd /mnt/c/Users/zthomas/Documents/"
 alias docgit="cd /mnt/c/Users/zthomas/Documents/git"
+alias poc="cd /mnt/c/Vector/D03/vector-poc/Appl/"
 
 alias g="git"
 alias gs="git status"
+alias cmd="cmd.exe /c"
 
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 
@@ -51,3 +53,4 @@ export FZF_DEFAULT_OPTS="
 --bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
 --bind 'ctrl-v:execute(code {+})'
 "
+LS_COLORS="ow=01;36;40" && export LS_COLORS
