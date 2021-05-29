@@ -14,6 +14,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify'
+Plug 'neomake/neomake'
+Plug 'coddingtonbear/neomake-platformio'
+Plug 'neovim/nvim-lspconfig'
+Plug 'prabirshrestha/vim-lsp'
 " Plug 'CoatiSoftware/vim-sourcetrail'
 " Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
@@ -62,7 +66,6 @@ set expandtab
 " set cindent
 set cino+=(0
 
-let &path.="src/include,Libraries,"
 
 "Color stuff
 set t_Co=256
@@ -204,7 +207,7 @@ nmap <Leader>h :CocCommand clangd.switchSourceHeader<CR>
 let g:coc_global_extensions = [ 
             \'coc-pairs', 
             \'coc-eslint',
-            \'coc-clangd', 
+            \'coc-clangd',
             \'coc-tsserver', 
             \'coc-rust-analyzer', 
             \'coc-json', 
@@ -306,3 +309,6 @@ if has("cscope")
 	nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
 	nmap <C-Space>a :scs find a <C-R>=expand("<cword>")<CR><CR>
 endif
+
+set path+=/home/zach/.platformio/packages/framework-zephyr/include/
+
