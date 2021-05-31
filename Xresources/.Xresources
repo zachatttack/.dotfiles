@@ -39,5 +39,5 @@
 
 !! -- Fonts -- !
 /* *.font:xft:SourceCodeVariable:size=16 */
-*.font: JetBrains Mono:size=13
+*.font: JetBrains Mono:size=14
 

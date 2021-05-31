@@ -75,7 +75,7 @@ hi Normal guibg=NONE ctermbg=NONE
 hi Search ctermbg=grey
 highlight HighlightedyankRegion cterm=reverse gui=reverse
 let g:lightline = { 
-            \ 'colorscheme': 'dogrun',
+            \ 'colorscheme': 'bogster',
             \ }
 
 let g:rg_binary="/home/zach/.cargo/bin/rg"
