@@ -1,42 +1,10 @@
-! ! Colorscheme
+! Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+! Copyright (c) 2016-present Sven Greb <code@svengreb.de>
 
-! ! special
-! *.foreground: #93a1a1
-! *.background: #141c21
-! *.cursorColor: #afbfbf
-
-! ! black
-! *.color0: #263640
-! *.color8: #4a697d
-
-! ! red
-! *.color1: #d12f2c
-! *.color9: #fa3935
-
-! ! green
-! *.color2: #819400
-! *.color10: #a4bd00
-
-! ! yellow
-! *.color3: #b08500
-! *.color11: #d9a400
-
-! ! blue
-! *.color4: #2587cc
-! *.color12: #2ca2f5
-
-! ! magenta
-! *.color5: #696ebf
-! *.color13: #8086e8
-
-! ! cyan
-! *.color6: #289c93
-! *.color14: #33c5ba
-
-! ! white
-! *.color7: #bfbaac
-! *.color15: #fdf6e3
-
+! Project:    Nord XResources
+! Version:    0.1.0
+! Repository: https://github.com/arcticicestudio/nord-xresources
+! License:    MIT
 
 #define nord0 #2E3440
 #define nord1 #3B4252
@@ -77,10 +45,3 @@
 *.color13: nord15
 *.color14: nord7
 *.color15: nord6
-
-
-
-!! -- Fonts -- !
-/* *.font:xft:SourceCodeVariable:size=16 */
-*.font: JetBrains Mono:size=14
-
