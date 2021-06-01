@@ -6,6 +6,10 @@
 super + Return
 	alacritty
 
+# browser
+super + b
+	brave
+
 # program launcher
 super + @space
 	dmenu_run
@@ -13,6 +17,15 @@ super + @space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+alt + h
+    xdotool keyup h key --clearmodifiers Left
+alt + j
+    xdotool keyup j key --clearmodifiers Down
+alt + k
+    xdotool keyup k key --clearmodifiers Up
+alt + l
+    xdotool keyup l key --clearmodifiers Right
 
 #
 # bspwm hotkeys
@@ -81,9 +94,13 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# super + {_,shift + }{1-9,0}
+# 	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {_,shift + }{1-4,0}
+	bspc {desktop -f,node -d} 'DP-4:^{1-4}'  
 
+super + {_,shift + }{5-8,0}
+	bspc {desktop -f,node -d} 'DP-2:^{5-8}'
 #
 # preselect
 #
