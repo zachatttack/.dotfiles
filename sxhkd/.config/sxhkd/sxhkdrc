@@ -94,13 +94,8 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-# super + {_,shift + }{1-9,0}
-# 	bspc {desktop -f,node -d} '^{1-9,10}'
-super + {_,shift + }{1-4,0}
-	bspc {desktop -f,node -d} 'DP-4:^{1-4}'  
-
-super + {_,shift + }{5-8,0}
-	bspc {desktop -f,node -d} 'DP-2:^{5-8}'
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
 #
 # preselect
 #

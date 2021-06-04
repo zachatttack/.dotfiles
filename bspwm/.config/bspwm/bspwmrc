@@ -6,8 +6,9 @@ xrandr --output DP-4 --primary --mode 3440x1440 --rate 144.00 --output DP-2 --mo
 
 MONITORS=( $(bspc query --monitors) )
 
-bspc monitor DP-2 -d V VI VII VIII
-bspc monitor DP-4 -d I II III IV
+bspc wm --reorder-monitors DP-4 DP-2
+bspc monitor DP-4 -d 1 2 3 4 
+bspc monitor DP-2 -d 5 6 7 8 
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -16,14 +17,8 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
-
 sh /home/zach/.config/polybar/launch.sh
 
-feh --bg-scale $HOME/Pictures/wp.jpg
+feh --bg-scale --randomize $HOME/images/wallpaper/wallpapers/
 picom --config $HOME/.config/picom/picom.conf
 xsetroot -cursor_name left_ptr
